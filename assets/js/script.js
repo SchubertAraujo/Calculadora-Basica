@@ -1,24 +1,34 @@
-function getNumber(value){
-    document.getElementById('display').value += value   
+const setResult = (sumedNumber, clear) => {
+    return (
+        document.getElementById('display').value = clear ? '' : document.getElementById('display').value + sumedNumber
+    )
 }
 
-function getOperation(action){
-    clearAction = action == 'clear'
-    equalAction = action == '='
-    zeroValue = document.getElementById('display').value == '0'
-    emptyValue = document.getElementById('display').value == ''
-    endsinOperator = endsWithOperator(document.getElementById('display').value)
+function removeDoubleOperator(expression) {
+    let lastCaracter = expression.charAt(expression.length-1)
+    let penultCaracter = expression.charAt(expression.length-2)
+    let removedOperator = expression
+    if (lastCaracter === penultCaracter) 
+        removedOperator = expression.slice(0,-1)
+    return removedOperator
+}
 
-    let result = document.getElementById('display').value;
-  
-    if (clearAction) 
-        result = ''
-    else if(equalAction) 
-        result = handlingEval(document.getElementById('display').value)
-    else if (!zeroValue && !emptyValue && !endsinOperator) 
-        result = document.getElementById('display').value + action   
+function operation(operator){
+    let fullExpression = document.getElementById('display').value + operator
+    let clear = operator === 'clear' ? true : false
+    let finalExpression
 
-    document.getElementById('display').value = result
+    if (fullExpression === '0' & operator === '0')
+        fullExpression = 0
+
+    if (!endsWithOperator(operator)){
+        finalExpression = removeDoubleOperator(fullExpression)
+    } else if(operator === '=') {
+        finalExpression = handlingEval(fullExpression)
+    }
+
+
+    setResult(finalExpression, clear)
 }
 
 
@@ -41,14 +51,17 @@ function handlingEval(operation) {
     }
 }
 
-function endsWithOperator(expression){
-    let minus = expression.endsWith('-')
-    let plus = expression.endsWith('+')
-    let time = expression.endsWith('*')
-    let dividedBy = expression.endsWith('/')
-    let point = expression.endsWith('.')
+function endsWithOperator(operator){
+    let minus = operator.endsWith('-')
+    let plus = operator.endsWith('+')
+    let time = operator.endsWith('*')
+    let dividedBy = operator.endsWith('/')
+    let point = operator.endsWith('.')
+
+
     if (minus || plus || time || dividedBy || point){
-        return true
+ 
+        return true;
     }
-    return false
+    return false;
 }
