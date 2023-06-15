@@ -1,34 +1,39 @@
 const setResult = (sumedNumber, clear) => {
     return (
-        document.getElementById('display').value = clear ? '' : document.getElementById('display').value + sumedNumber
+        document.getElementById('display').value = clear ? '' : sumedNumber
     )
 }
+let completedOperation = false
+const getResult = () => {
+    if (completedOperation) {
+        completedOperation = false
+        return ''
+    } else {
+        return document.getElementById('display').value
+    }
 
-function removeDoubleOperator(expression) {
-    let lastCaracter = expression.charAt(expression.length-1)
-    let penultCaracter = expression.charAt(expression.length-2)
-    let removedOperator = expression
-    if (lastCaracter === penultCaracter) 
-        removedOperator = expression.slice(0,-1)
-    return removedOperator
 }
 
-function operation(operator){
-    let fullExpression = document.getElementById('display').value + operator
-    let clear = operator === 'clear' ? true : false
-    let finalExpression
 
-    if (fullExpression === '0' & operator === '0')
+function operation(key){
+    let display = getResult()
+    let fullExpression = display + key
+    let clear = key === 'clear' ? true : false
+    
+
+    if (fullExpression === '0' & key === '0')
         fullExpression = 0
 
-    if (!endsWithOperator(operator)){
-        finalExpression = removeDoubleOperator(fullExpression)
-    } else if(operator === '=') {
-        finalExpression = handlingEval(fullExpression)
+
+    if (endsWithOperator(display) & endsWithOperator(key)){
+        fullExpression = display.slice(0,-1) + key;
+    } else if(key === '=') {
+        fullExpression = handlingEval(fullExpression.slice(0,-1))
+        completedOperation = true
     }
 
 
-    setResult(finalExpression, clear)
+    setResult(fullExpression, clear)
 }
 
 
