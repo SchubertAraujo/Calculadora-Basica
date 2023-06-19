@@ -44,6 +44,8 @@ function handlingEval(operation) {
             alert('Não é possível fazer divisão por zero')
             return '0'
        }
+       if (operation == '')
+        operation = 0
        return eval(operation)
 
     } catch(e) {        
