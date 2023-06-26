@@ -19,3 +19,8 @@
     - Em tópicos utilizei um topico "show" para exibir apenas os que quero
     - Utilizado os tópicos também para informar as linguagens em um popcard, sem necessidade de usar um novo fetch
     - Um padrão para um preview do projeto utilizado com o nome de "preview" para o popcard do projeto
+      
+> Projeto em:
+> 
+> <a href="https://www.w3schools.com"><img src="https://img.shields.io/static/v1?label=%20&message=Repositorio&color=363434&labelColor=363434&style=flat&logo=github" /></a>
+
