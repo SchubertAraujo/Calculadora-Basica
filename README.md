@@ -22,5 +22,5 @@
       
 > Projeto em:
 > 
-> <a href="https://www.w3schools.com"><img src="https://img.shields.io/static/v1?label=%20&message=Repositorio&color=363434&labelColor=363434&style=flat&logo=github" /></a>
+> <a href="https://github.com/SchubertAraujo/my-professional-profile"><img src="https://img.shields.io/static/v1?label=%20&message=Repositorio&color=363434&labelColor=363434&style=flat&logo=github" /></a>
 
