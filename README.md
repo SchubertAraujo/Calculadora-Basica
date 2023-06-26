@@ -16,7 +16,7 @@
 
 ## INFORMAÇÕES ADICIONAIS
 - Projeto será exibido em um site pessoal
-    - Em tópicos utilizei um topico "show" para exibir apenas os que quero
+    - Em tópicos utilizei um topico "shows" para exibir apenas os que quero
     - Utilizado os tópicos também para informar as linguagens em um popcard, sem necessidade de usar um novo fetch
     - Um padrão para um preview do projeto utilizado com o nome de "preview" para o popcard do projeto
       
